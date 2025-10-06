@@ -1,68 +1,60 @@
-{\rtf1\ansi\ansicpg932\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+/**
+ * ヨガスタジオ集客目標計算ロジック
+ * N = T / ( (p1 * r1) + (p2 * r2) + (p3 * r3) )
+ */
 
-\f0\fs24 \cf0 /**\
- * \uc0\u12520 \u12460 \u12473 \u12479 \u12472 \u12458 \u38598 \u23458 \u30446 \u27161 \u35336 \u31639 \u12525 \u12472 \u12483 \u12463 \
- * N = T / ( (p1 * r1) + (p2 * r2) + (p3 * r3) )\
- */\
-\
-function calculateGoal() \{\
-    const T = document.getElementById('targetAttendees').value;\
-    const resultOutput = document.getElementById('resultOutput');\
-    \
-    // \uc0\u20837 \u21147 \u20516 \u12398 \u12481 \u12455 \u12483 \u12463 \
-    if (!T || T <= 0) \{\
-        alert("\uc0\u30446 \u27161 \u38598 \u23458 \u20154 \u25968 \u12395 \u27491 \u12398 \u25968 \u20516 \u12434 \u20837 \u21147 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 ");\
-        resultOutput.style.display = 'none';\
-        return;\
-    \}\
-\
-    // --- \uc0\u22266 \u23450 \u20516  (\u12503 \u12525 \u12531 \u12503 \u12488 \u12424 \u12426 ) ---\
-    const p1 = 0.20; // \uc0\u29105 \u24515 \u12394 \u39015 \u23458 \u23652 \u12398 \u21106 \u21512 \
-    const r1 = 1.00; // \uc0\u29105 \u24515 \u12394 \u39015 \u23458 \u23652 \u12398 \u21442 \u21152 \u29575 \
-    const p2 = 0.60; // \uc0\u36890 \u24120 \u12398 \u39015 \u23458 \u23652 \u12398 \u21106 \u21512 \
-    const r2 = 0.50; // \uc0\u36890 \u24120 \u12398 \u39015 \u23458 \u23652 \u12398 \u21442 \u21152 \u29575 \
-    const p3 = 0.20; // \uc0\u19981 \u23450 \u26399 \u12394 \u39015 \u23458 \u23652 \u12398 \u21106 \u21512 \
-    const r3 = 0.10; // \uc0\u19981 \u23450 \u26399 \u12394 \u39015 \u23458 \u23652 \u12398 \u21442 \u21152 \u29575 \
-    // ---------------------------------\
-\
-    // \uc0\u20998 \u27597 \u12398 \u35336 \u31639  (\u21152 \u37325 \u24179 \u22343 \u21442 \u21152 \u29575  W)\
-    const W = (p1 * r1) + (p2 * r2) + (p3 * r3); \
-    // W = (0.20 * 1.00) + (0.60 * 0.50) + (0.20 * 0.10)\
-    // W = 0.20 + 0.30 + 0.02 = 0.52\
-\
-    // \uc0\u24517 \u35201 \u12394 \u39015 \u23458 \u32207 \u25968  (N) \u12398 \u35336 \u31639 \
-    const N_raw = T / W;\
-    const N_decimal = N_raw.toFixed(2); // \uc0\u23567 \u25968 \u28857 \u20197 \u19979 \u31532 2\u20301 \u12414 \u12391 \
-    const N_integer = Math.ceil(N_raw); // \uc0\u25972 \u25968 \u65288 \u20999 \u12426 \u19978 \u12370 \u65289 \
-\
-    // --- \uc0\u32080 \u26524 \u12398 HTML\u12408 \u12398 \u20986 \u21147  ---\
-\
-    // 1. \uc0\u35336 \u31639 \u12398 \u36942 \u31243 \
-    document.getElementById('calculationProcess').innerHTML = `\
-        <p><strong>\uc0\u21152 \u37325 \u24179 \u22343 \u21442 \u21152 \u29575  (\u20998 \u27597 ):</strong></p>\
-        <p>($\{p1\} \'d7 $\{r1\}) + ($\{p2\} \'d7 $\{r2\}) + ($\{p3\} \'d7 $\{r3\}) = $\{W.toFixed(2)\}</p>\
-        <p><strong>\uc0\u24517 \u35201 \u12394 \u39015 \u23458 \u32207 \u25968  (N) \u12398 \u35336 \u31639 \u24335 :</strong></p>\
-        <p>N = $\{T\} / $\{W.toFixed(2)\}</p>\
-    `;\
-\
-    // 2. \uc0\u32080 \u26524 \
-    document.getElementById('finalResult').innerHTML = `\
-        <p class="final-result">\uc0\u35336 \u31639 \u32080 \u26524 : $\{N_decimal\} \u20154 </p>\
-        <p class="final-result-int">\uc0\u30446 \u27161 \u36948 \u25104 \u12395 \u24517 \u35201 \u12394 \u39015 \u23458 \u32207 \u25968 \u65288 \u20999 \u12426 \u19978 \u12370 \u65289 \u65306 <strong>$\{N_integer\} \u20154 </strong></p>\
-    `;\
-\
-    // 3. \uc0\u20998 \u26512 \u12392 \u12450 \u12489 \u12496 \u12452 \u12473 \
-    document.getElementById('summary').textContent = `\uc0\u30446 \u27161 \u12392 \u12377 \u12427 \u38598 \u23458 \u20154 \u25968  $\{T\} \u20154 \u12434 \u36948 \u25104 \u12377 \u12427 \u12383 \u12417 \u12395 \u12399 \u12289 \u32207 \u39015 \u23458 \u25968  $\{N_integer\} \u20154 \u12364 \u24517 \u35201 \u12391 \u12377 \u12290 \u12371 \u12428 \u12399 \u12289 \u24179 \u22343 \u21442 \u21152 \u29575 \u12364 $\{(W * 100).toFixed(0)\}%\u12391 \u12354 \u12427 \u12371 \u12392 \u12434 \u32771 \u24942 \u12375 \u12383 \u32080 \u26524 \u12391 \u12377 \u12290 `;\
-    \
-    document.getElementById('advice1').textContent = "\uc0\u12525 \u12452 \u12516 \u12523 \u12486 \u12451 \u12503 \u12525 \u12464 \u12521 \u12512 \u12289 \u38480 \u23450 \u12527 \u12540 \u12463 \u12471 \u12519 \u12483 \u12503 \u12398 \u38283 \u20652 \u12394 \u12393 \u12434 \u34892 \u12356 \u12289 \u36864 \u20250 \u12434 \u38450 \u12366 \u12289 \u32153 \u32154 \u21033 \u29992 \u12434 \u20419 \u12375 \u12414 \u12375 \u12423 \u12358 \u12290 ";\
-    document.getElementById('advice2').textContent = "\uc0\u12522 \u12510 \u12452 \u12531 \u12480 \u12540 \u12513 \u12540 \u12523 \u12420 \u21442 \u21152 \u38971 \u24230 \u12395 \u24540 \u12376 \u12383 \u29305 \u20856 \u65288 \u20363 \u65306 \u26376 4\u22238 \u20197 \u19978 \u21442 \u21152 \u12391 \u21106 \u24341 \u65289 \u12434 \u25552 \u20379 \u12375 \u12289 \u21442 \u21152 \u29575 0.50\u12363 \u12425 0.60\u12408 \u21521 \u19978 \u12373 \u12379 \u12427 \u12371 \u12392 \u12434 \u30446 \u25351 \u12375 \u12414 \u12375 \u12423 \u12358 \u12290 ";\
-    document.getElementById('advice3').textContent = "\uc0\u12362 \u35430 \u12375 \u12524 \u12483 \u12473 \u12531 \u24460 \u12398 \u12501 \u12457 \u12525 \u12540 \u12450 \u12483 \u12503 \u12434 \u24505 \u24213 \u12375 \u12289 \u21021 \u22238 \u38480 \u23450 \u12398 \u12497 \u12483 \u12465 \u12540 \u12472 \u12503 \u12521 \u12531 \u12434 \u25552 \u26696 \u12377 \u12427 \u12371 \u12392 \u12391 \u12289 \u36890 \u24120 \u12398 \u39015 \u23458 \u23652 \u12408 \u31227 \u34892 \u12434 \u20419 \u12375 \u12414 \u12375 \u12423 \u12358 \u12290 ";\
-\
-    // \uc0\u32080 \u26524 \u12456 \u12522 \u12450 \u12434 \u34920 \u31034 \
-    resultOutput.style.display = 'block';\
-\}}
+function calculateGoal() {
+    const T = document.getElementById('targetAttendees').value;
+    const resultOutput = document.getElementById('resultOutput');
+    
+    // 入力値のチェック
+    if (!T || T <= 0) {
+        alert("目標集客人数に正の数値を入力してください。");
+        resultOutput.style.display = 'none';
+        return;
+    }
+
+    // --- 固定値 (プロンプトより) ---
+    const p1 = 0.20; // 熱心な顧客層の割合
+    const r1 = 1.00; // 熱心な顧客層の参加率
+    const p2 = 0.60; // 通常の顧客層の割合
+    const r2 = 0.50; // 通常の顧客層の参加率
+    const p3 = 0.20; // 不定期な顧客層の割合
+    const r3 = 0.10; // 不定期な顧客層の参加率
+    // ---------------------------------
+
+    // 分母の計算 (加重平均参加率 W)
+    const W = (p1 * r1) + (p2 * r2) + (p3 * r3); 
+    // W = 0.20 + 0.30 + 0.02 = 0.52
+
+    // 必要な顧客総数 (N) の計算
+    const N_raw = T / W;
+    const N_decimal = N_raw.toFixed(2); // 小数点以下第2位まで
+    const N_integer = Math.ceil(N_raw); // 整数（切り上げ）
+
+    // --- 結果のHTMLへの出力 ---
+
+    // 1. 計算の過程
+    document.getElementById('calculationProcess').innerHTML = `
+        <p><strong>加重平均参加率 (分母):</strong></p>
+        <p>(${p1} × ${r1}) + (${p2} × ${r2}) + (${p3} × ${r3}) = ${W.toFixed(2)}</p>
+        <p><strong>必要な顧客総数 (N) の計算式:</strong></p>
+        <p>N = ${T} / ${W.toFixed(2)}</p>
+    `;
+
+    // 2. 結果
+    document.getElementById('finalResult').innerHTML = `
+        <p class="final-result">計算結果: ${N_decimal} 人</p>
+        <p class="final-result-int">目標達成に必要な顧客総数（切り上げ）：<strong>${N_integer} 人</strong></p>
+    `;
+
+    // 3. 分析とアドバイス
+    document.getElementById('summary').textContent = `目標とする集客人数 ${T} 人を達成するためには、総顧客数 ${N_integer} 人が必要です。これは、平均参加率が${(W * 100).toFixed(0)}%であることを考慮した結果です。`;
+    
+    document.getElementById('advice1').textContent = "ロイヤルティプログラム、限定ワークショップの開催などを行い、退会を防ぎ、継続利用を促しましょう。";
+    document.getElementById('advice2').textContent = "リマインダーメールや参加頻度に応じた特典（例：月4回以上参加で割引）を提供し、参加率0.50から0.60へ向上させることを目指しましょう。";
+    document.getElementById('advice3').textContent = "お試しレッスン後のフォローアップを徹底し、初回限定のパッケージプランを提案することで、通常の顧客層へ移行を促しましょう。";
+
+    // 結果エリアを表示
+    resultOutput.style.display = 'block';
+}
