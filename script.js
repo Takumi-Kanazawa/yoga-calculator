@@ -2,11 +2,11 @@
  * ヨガスタジオ集客目標計算ロジック
  * N = (T / W) × C
  * W (加重平均参加率) = (p1*r1) + (p2*r2) + (p3*r3)
- * T: 1クラスの目標集客人数, C: クラス総数
+ * T: 1クラスの目標集客人数, C: 1週間の総クラス数
  */
 
 function calculateGoal() {
-    // 1. HTMLから入力値を取得 (期間係数Dは削除)
+    // 1. HTMLから入力値を取得
     const T = parseFloat(document.getElementById('targetAttendees').value);
     const C = parseFloat(document.getElementById('totalClasses').value);
     const resultOutput = document.getElementById('resultOutput');
@@ -31,29 +31,31 @@ function calculateGoal() {
     // W = 0.20 + 0.30 + 0.02 = 0.52
 
     // 5. 最終的な必要な顧客総数 (N) の計算
-    // N = (1クラスに必要な顧客数) × クラス総数
     const N_base = T / W;
-    const N_raw = N_base * C; // 期間係数Dを削除
+    const N_raw = N_base * C;
     
-    const N_decimal = N_raw.toFixed(2); // 小数点以下第2位まで
-    const N_integer = Math.ceil(N_raw); // 整数（切り上げ）
+    const N_decimal = N_raw.toFixed(2);
+    const N_integer = Math.ceil(N_raw); 
 
     // 6. 結果のHTMLへの出力
+
+    // ⭐最終結果をハイライトボックスに出力⭐
+    document.getElementById('finalResult').innerHTML = `
+        <p class="box-label">目標達成に必要な総顧客数（切り上げ）：</p>
+        <p class="final-value"><strong>${N_integer}</strong> <span class="unit">人</span></p>
+        <p class="final-result-decimal">(計算結果: ${N_decimal} 人)</p>
+    `;
+
 
     // 計算の過程
     const totalAttendance = T * C; // 期間内の総参加目標人数
     document.getElementById('calculationProcess').innerHTML = `
         <p><strong>加重平均参加率 (W):</strong> (${p1} × ${r1}) + (${p2} × ${r2}) + (${p3} × ${r3}) = ${W.toFixed(2)}</p>
-        <p><strong>総参加目標人数 (期間内):</strong> ${T} (T) × ${C} (C) = ${totalAttendance} 人</p>
+        <p><strong>総参加目標人数 (1週間):</strong> ${T} (T) × ${C} (C) = ${totalAttendance} 人</p>
         <p><strong>必要な顧客総数 (N) の計算式:</strong></p>
         <p>N = ${totalAttendance} / ${W.toFixed(2)} = ${N_decimal}</p>
     `;
 
-    // 最終結果
-    document.getElementById('finalResult').innerHTML = `
-        <p class="final-result">計算結果: ${N_decimal} 人</p>
-        <p class="final-result-int">目標達成に必要な総顧客数（切り上げ）：<strong>${N_integer} 人</strong></p>
-    `;
 
     // 分析とアドバイス
     document.getElementById('summary').textContent = `目標とする総集客人数 ${totalAttendance} 人を達成するためには、総顧客数 ${N_integer} 人が必要です。これは、平均参加率が約${(W * 100).toFixed(0)}%であることを考慮した結果です。`;
