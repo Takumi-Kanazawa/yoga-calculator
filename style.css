@@ -79,3 +79,35 @@ li::before \{\
     position: absolute;\
     left: 0;\
 \}}
+
+/* style.css ファイルの末尾に追加・修正してください */
+
+/* 入力フォームの各グループをブロック要素（縦並び）にし、間隔を空ける */
+.form-group {
+    margin-bottom: 15px; /* 各行の下にスペースを追加 */
+    display: block; /* ブロック要素にして縦並びにする */
+    text-align: left; /* 左揃えにする */
+}
+
+/* ラベルの幅を固定して、入力ボックスの位置を揃えやすくする */
+.input-section label {
+    display: inline-block;
+    width: 250px; /* 必要に応じて調整してください */
+    text-align: right;
+    margin-right: 10px;
+}
+
+/* 入力ボックス（input）のスタイル */
+#targetAttendees, #totalClasses {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100px; /* 幅を小さくして見やすくする */
+}
+
+/* 計算ボタンを少し下に配置 */
+.input-section button {
+    margin-top: 10px;
+}
+
+/* 既存のstyle.cssコードがあれば、それと統合してください */
