@@ -2,16 +2,26 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ヨガスタジオ集客目標計算</title>
+    <title>ヨガスタジオ集客目標計算ツール</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>🧘‍♀️ヨガスタジオ集客目標計算ツール</h1>
-    <p>目標集客人数（T）を入力するだけで、必要な総顧客数を計算します。</p>
+    <p>目標集客人数（T）、クラス総数、期間目標を入力して、必要な総顧客数を計算します。</p>
 
     <div class="input-section">
         <label for="targetAttendees">目標集客人数 (T)：</label>
-        <input type="number" id="targetAttendees" placeholder="例: 100" required>
+        <input type="number" id="targetAttendees" placeholder="例: 100" value="10" required>
+        
+        <label for="totalClasses">目標とするクラス総数 (C)：</label>
+        <input type="number" id="totalClasses" value="10" required>
+
+        <label for="durationMultiplier">期間目標：</label>
+        <select id="durationMultiplier">
+            <option value="1">週次 (×1)</option>
+            <option value="4">月次 (×4)</option>
+        </select>
+
         <button onclick="calculateGoal()">計算する</button>
     </div>
 
@@ -19,19 +29,19 @@
 
     <div id="resultOutput" class="output-section" style="display:none;">
         <h2>計算結果</h2>
-
+        
         <div id="calculationProcess"></div>
         <div id="finalResult"></div>
 
         <hr>
-
+        
         <h3>分析とアドバイス</h3>
         <p><strong>要約:</strong> <span id="summary"></span></p>
         <div id="adviceSection">
             <h4>集客戦略のヒント:</h4>
             <ul>
                 <li><strong>熱心な顧客 (p1=20%):</strong> <span id="advice1"></span></li>
-                <li><strong>通常の顧客 (p2=60%):&lt;/strong&gt; <span id="advice2"></span></li>
+                <li><strong>通常の顧客 (p2=60%):</strong> <span id="advice2"></span></li>
                 <li><strong>不定期な顧客 (p3=20%):</strong> <span id="advice3"></span></li>
             </ul>
         </div>
