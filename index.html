@@ -7,20 +7,18 @@
 </head>
 <body>
     <h1>🧘‍♀️ヨガスタジオ集客目標計算ツール</h1>
-    <p>目標集客人数（T）、クラス総数、期間目標を入力して、必要な総顧客数を計算します。</p>
+    <p>1クラスの目標集客人数（T）と、期間内の総クラス数（C）を入力して、必要な総顧客数を計算します。</p>
 
     <div class="input-section">
-        <label for="targetAttendees">目標集客人数 (T)：</label>
-        <input type="number" id="targetAttendees" placeholder="例: 100" value="10" required>
+        <div class="form-group">
+            <label for="targetAttendees">1クラスの目標集客人数 (T)：</label>
+            <input type="number" id="targetAttendees" placeholder="例: 10" value="10" required>
+        </div>
         
-        <label for="totalClasses">目標とするクラス総数 (C)：</label>
-        <input type="number" id="totalClasses" value="10" required>
-
-        <label for="durationMultiplier">期間目標：</label>
-        <select id="durationMultiplier">
-            <option value="1">週次 (×1)</option>
-            <option value="4">月次 (×4)</option>
-        </select>
+        <div class="form-group">
+            <label for="totalClasses">期間内の総クラス数 (C)：</label>
+            <input type="number" id="totalClasses" value="10" required>
+        </div>
 
         <button onclick="calculateGoal()">計算する</button>
     </div>
