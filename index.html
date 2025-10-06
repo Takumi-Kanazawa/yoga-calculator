@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>🧘‍♀️ヨガスタジオ集客目標計算ツール</h1>
-    <p>1クラスの目標集客人数（T）と、１週間の総クラス数（C）を入力して、必要な総顧客数を計算します。</p>
+    <p>1クラスの目標集客人数（T）と、期間内の総クラス数（C）を入力して、必要な総顧客数を計算します。</p>
 
     <div class="input-section">
         <div class="form-group">
@@ -16,8 +16,8 @@
         </div>
         
         <div class="form-group">
-            <label for="totalClasses">１週間の総クラス数 (C)：</label>
-            <input type="number" id="totalClasses" value="10" required>
+            <label for="totalClasses">期間内の総クラス数 (C)：</label>
+            <input type="number" id="totalClasses" placeholder="例: 10" value="10" required>
         </div>
 
         <button onclick="calculateGoal()">計算する</button>
@@ -33,6 +33,20 @@
 
         <hr>
         
+        <div class="notes-section">
+            <h4>💡 計算に関する重要事項</h4>
+            <p class="warning-note">
+                <strong>【仮説と注意書き】</strong>この計算結果は、あくまでも当スタジオの過去データやパレートの法則をベースにした考え方に基づくものであり、市場の変動、競合の動向、季節要因、プロモーションの実施効果などは一切考慮されていません。そのため、実際の集客数と乖離する可能性があることをご留意の上、意思決定の補助ツールとしてご利用ください。
+            </p>
+            <p>
+                <strong>【計算の前提条件】</strong>
+                <ul>
+                    <li> <strong>顧客層の構成: </strong>顧客全体は、熱心な顧客層(20%)、通常(60%)、不定期(20%)の割合で構成されている。</li>
+                    <li> <strong>平均参加率: </strong>各顧客層の平均参加率（100%、50%、10%）は、このツールが想定する安定した平均値として機能する。</li>
+                    <li> <strong>期間と計算:</strong> 期間内の総クラス数をもとに、顧客層ごとの参加頻度（参加率）を加味して必要な総顧客数を計算する。</li>
+                </ul>
+            </p>
+        </div>
         <h3>分析とアドバイス</h3>
         <p><strong>要約:</strong> <span id="summary"></span></p>
         <div id="adviceSection">
