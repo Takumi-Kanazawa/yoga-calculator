@@ -1,113 +1,63 @@
-{\rtf1\ansi\ansicpg932\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+/* style.css ファイルの末尾に追加・修正 */
 
-\f0\fs24 \cf0 body \{\
-    font-family: 'Helvetica Neue', Arial, sans-serif;\
-    max-width: 800px;\
-    margin: 0 auto;\
-    padding: 20px;\
-    background-color: #f4f7f6;\
-    color: #333;\
-\}\
-\
-h1 \{\
-    text-align: center;\
-    color: #4a90e2; /* \uc0\u12520 \u12460 \u12473 \u12479 \u12472 \u12458 \u12425 \u12375 \u12356 \u33394  */\
-\}\
-\
-.input-section \{\
-    padding: 20px;\
-    border: 1px solid #ccc;\
-    border-radius: 8px;\
-    background-color: #ffffff;\
-    text-align: center;\
-\}\
-\
-#targetAttendees \{\
-    padding: 10px;\
-    margin-right: 10px;\
-    border: 1px solid #ddd;\
-    border-radius: 4px;\
-    width: 150px;\
-\}\
-\
-button \{\
-    padding: 10px 20px;\
-    background-color: #5cb85c; /* \uc0\u32209 \u33394 \u12398 \u12508 \u12479 \u12531  */\
-    color: white;\
-    border: none;\
-    border-radius: 4px;\
-    cursor: pointer;\
-    font-size: 16px;\
-\}\
-\
-button:hover \{\
-    background-color: #449d44;\
-\}\
-\
-.output-section \{\
-    margin-top: 30px;\
-    padding: 20px;\
-    border-radius: 8px;\
-    background-color: #ffffff;\
-    border-left: 5px solid #4a90e2;\
-\}\
-\
-.final-result-int \{\
-    font-size: 1.5em;\
-    color: #d9534f; /* \uc0\u30446 \u31435 \u12388 \u33394  */\
-    margin: 15px 0;\
-\}\
-\
-ul \{\
-    list-style-type: none;\
-    padding-left: 0;\
-\}\
-\
-li \{\
-    margin-bottom: 10px;\
-    padding-left: 1.5em;\
-    position: relative;\
-\}\
-\
-li::before \{\
-    content: "\uc0\u55357 \u56481 "; /* \u38651 \u29699 \u12398 \u32117 \u25991 \u23383  */\
-    position: absolute;\
-    left: 0;\
-\}}
-
-/* style.css ファイルの末尾に追加・修正してください */
-
-/* 入力フォームの各グループをブロック要素（縦並び）にし、間隔を空ける */
-.form-group {
-    margin-bottom: 15px; /* 各行の下にスペースを追加 */
-    display: block; /* ブロック要素にして縦並びにする */
-    text-align: left; /* 左揃えにする */
+/* --- 最終結果のハイライトボックス --- */
+.highlight-box {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    border: 3px solid #ff7f50; /* サンゴ色やオレンジ色で目立たせる */
+    border-radius: 10px;
+    background-color: #fffaf0; /* 薄いベージュ背景 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ラベルの幅を固定して、入力ボックスの位置を揃えやすくする */
+.highlight-box .box-label {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #4a90e2; /* メインカラーと合わせる */
+    margin-bottom: 5px;
+}
+
+.highlight-box .final-value {
+    font-size: 2.5em; /* 数値を大きく */
+    color: #d9534f; /* 強調したい赤色 */
+    line-height: 1.1;
+    margin: 0;
+}
+
+.highlight-box .unit {
+    font-size: 0.5em;
+    font-weight: normal;
+    color: #333;
+    margin-left: 5px;
+}
+
+.highlight-box .final-result-decimal {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* --- 既存のフォームCSSの再確認（フォーム縦並び用） --- */
+.form-group {
+    margin-bottom: 15px; 
+    display: block; 
+    text-align: left; 
+}
+
 .input-section label {
     display: inline-block;
-    width: 250px; /* 必要に応じて調整してください */
+    width: 250px; 
     text-align: right;
     margin-right: 10px;
 }
 
-/* 入力ボックス（input）のスタイル */
-#targetAttendees, #totalClasses {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100px; /* 幅を小さくして見やすくする */
+/* 注意書きセクションのCSSも忘れずに追記してください */
+.notes-section {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px dashed #ccc; 
+    background-color: #fff9e6; 
+    border-radius: 5px;
 }
-
-/* 計算ボタンを少し下に配置 */
-.input-section button {
-    margin-top: 10px;
-}
-
-/* 既存のstyle.cssコードがあれば、それと統合してください */
+/* ... (notes-section内の他のスタイル) ... */
