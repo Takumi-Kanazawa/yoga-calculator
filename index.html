@@ -1,58 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <title>ヨガスタジオ集客目標計算</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ja"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;ヨガスタジオ集客目標計算&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="style.css"&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🧘‍♀️ヨガスタジオ集客目標計算ツール&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;目標集客人数（T）を入力するだけで、必要な総顧客数を計算します。&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="input-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="targetAttendees"&gt;目標集客人数 (T)：&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="targetAttendees" placeholder="例: 100" required&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="calculateGoal()"&gt;計算する&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;hr&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="resultOutput" class="output-section" style="display:none;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;計算結果&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="calculationProcess"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="finalResult"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;hr&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;分析とアドバイス&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;要約:&lt;/strong&gt; &lt;span id="summary"&gt;&lt;/span&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="adviceSection"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4&gt;集客戦略のヒント:&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;熱心な顧客 (p1=20%):&lt;/strong&gt; &lt;span id="advice1"&gt;&lt;/span&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;通常の顧客 (p2=60%):&lt;/strong&gt; &lt;span id="advice2"&gt;&lt;/span&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;strong&gt;不定期な顧客 (p3=20%):&lt;/strong&gt; &lt;span id="advice3"&gt;&lt;/span&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="script.js"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <h1>🧘‍♀️ヨガスタジオ集客目標計算ツール</h1>
+    <p>目標集客人数（T）を入力するだけで、必要な総顧客数を計算します。</p>
+
+    <div class="input-section">
+        <label for="targetAttendees">目標集客人数 (T)：</label>
+        <input type="number" id="targetAttendees" placeholder="例: 100" required>
+        <button onclick="calculateGoal()">計算する</button>
+    </div>
+
+    <hr>
+
+    <div id="resultOutput" class="output-section" style="display:none;">
+        <h2>計算結果</h2>
+
+        <div id="calculationProcess"></div>
+        <div id="finalResult"></div>
+
+        <hr>
+
+        <h3>分析とアドバイス</h3>
+        <p><strong>要約:</strong> <span id="summary"></span></p>
+        <div id="adviceSection">
+            <h4>集客戦略のヒント:</h4>
+            <ul>
+                <li><strong>熱心な顧客 (p1=20%):</strong> <span id="advice1"></span></li>
+                <li><strong>通常の顧客 (p2=60%):&lt;/strong&gt; <span id="advice2"></span></li>
+                <li><strong>不定期な顧客 (p3=20%):</strong> <span id="advice3"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
